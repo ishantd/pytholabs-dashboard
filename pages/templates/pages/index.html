@@ -27,9 +27,21 @@
                                 <div class="uk-card uk-card-default">
                                     {% for subtopic in topic.subtopic_set.all %}
                                         <div class="uk-tile uk-tile-muted uk-padding-small subtopic" style="border-top: 1px solid black; border-bottom: 1px solid white">
-                                            <a href="/admin/pages/subtopic/{{subtopic.id}}/change/">
+                                            <a href="#modal-subtopic" uk-toggle>
                                                 <p class="uk-h4">{{subtopic.subtitle}}</p>
                                             </a>
+                                        </div>
+                                        <div id="modal-subtopic" uk-modal>
+                                            <div class="uk-modal-dialog">
+                                                <button class="uk-modal-close-default" type="button" uk-close></button>
+                                                <div class="uk-modal-header">
+                                                    <h2 class="uk-modal-title">{{subtopic.subtitle}}</h2>
+                                                </div>
+                                                <div class="uk-modal-footer uk-text-right">
+                                                    <a href="/admin/pages/subtopic/{{subtopic.id}}/change/" class="uk-button uk-button-secondary">Change</a>
+                                                    <button class="uk-button uk-button-primary" type="button">View More</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     {% endfor %}
                         {% endif %}
@@ -52,5 +64,8 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+    <script>
+
+    </script>
 </body>
 </html>

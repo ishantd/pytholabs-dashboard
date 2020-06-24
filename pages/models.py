@@ -7,6 +7,7 @@ class Module(models.Model):
     body = models.TextField(null=True, blank=True)
     allow_comments = models.BooleanField(null=False, default=True)
     timestamp = models.DateField(default=timezone.now, null=False)
+    subtopic = models.ForeignKey('Subtopic', on_delete=models.CASCADE)
 
 class Topic(models.Model):
     title = models.CharField(max_length=150, null=True, blank=True)

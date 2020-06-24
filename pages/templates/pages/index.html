@@ -27,11 +27,11 @@
                                 <div class="uk-card uk-card-default">
                                     {% for subtopic in topic.subtopic_set.all %}
                                         <div class="uk-tile uk-tile-muted uk-padding-small subtopic" style="border-top: 1px solid black; border-bottom: 1px solid white">
-                                            <a href="#modal-subtopic" uk-toggle>
+                                            <a href="#modal-subtopic{{subtopic.id}}" uk-toggle>
                                                 <p class="uk-h4">{{subtopic.subtitle}}</p>
                                             </a>
                                         </div>
-                                        <div id="modal-subtopic" uk-modal>
+                                        <div id="modal-subtopic{{subtopic.id}}" uk-modal>
                                             <div class="uk-modal-dialog">
                                                 <button class="uk-modal-close-default" type="button" uk-close></button>
                                                 <div class="uk-modal-header">

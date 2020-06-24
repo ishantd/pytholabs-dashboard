@@ -7,7 +7,7 @@ class Module(models.Model):
     body = models.TextField(null=True, blank=True)
     allow_comments = models.BooleanField(null=False, default=True)
     timestamp = models.DateField(default=timezone.now, null=False)
-    subtopic = models.ForeignKey('Subtopic', on_delete=models.CASCADE)
+    subtopic = models.ForeignKey('Subtopic', on_delete=models.CASCADE, null=False, default=True)
 
 class Topic(models.Model):
     title = models.CharField(max_length=150, null=True, blank=True)
@@ -21,3 +21,10 @@ class Subtopic(models.Model):
     body = models.TextField(null=True, blank=True)
     allow_comments = models.BooleanField(null=False, default=True)
     timestamp = models.DateField(default=timezone.now, null=False)
+
+class Page(models.Model):
+    title = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    body = models.TextField(null=True, blank=True)
+    allow_comments = models.BooleanField(null=False, default=True)
+    timestamp = models.DateField(default=timezone.now, null=False)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, null=False, default=True)

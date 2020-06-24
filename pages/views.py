@@ -9,3 +9,8 @@ def index(request):
     subtopics = Subtopic.objects.all()
     context = {'modules': modules, 'topics': topics, 'subtopics': subtopics}
     return render(request, 'pages/index.html', context)
+
+def subindex(request, pk):
+    subtopic = Subtopic.objects.get(id=pk)
+    context={'x': subtopic}
+    return render(request, 'pages/subindex.html', context)

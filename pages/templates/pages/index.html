@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<div class="tree">
+	<ul>
+		<li>
+			<a href="#">Topic</a>
+			<ul>
+                {% for topic in topics %}
+                    <li>
+                        <div class="uk-card uk-card-primary">
+                            <a href="/admin/pages/topic/{{topic.id}}/change/"> {{topic.title}} </a>
+                        </div>
+                        <ul>
+                            <li>
+                        {% if topic.subtopic_set.all %}
+                                <div class="uk-card uk-card-default">
+                                    {% for subtopic in topic.subtopic_set.all %}
+                                        <div class="uk-tile uk-tile-muted uk-padding-small subtopic" style="border-top: 1px solid black; border-bottom: 1px solid white">
+                                            <a href="/admin/pages/subtopic/{{subtopic.id}}/change/">
+                                                <p class="uk-h4">{{subtopic.subtitle}}</p>
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                        {% endif %}
+                                    <div class="uk-tile uk-tile-secondary uk-padding-remove">
+                                        <a href="/admin/pages/subtopic/add/">
+                                           <p class="uk-h4">Add Subtopic</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                {% endfor %}
+			</ul>
+		</li>
+	</ul>
+</div>
+
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>

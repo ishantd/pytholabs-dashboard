@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!--
+We will create a family tree using just CSS(3)
+The markup will be simple nested lists
+-->
+<div class="tree">
+	<ul>
+		<li>
+			<a href="#">Topic</a>
+			<ul>
+				<li>
+					<a href="#">Child</a>
+					<ul>
+						<li>
+							<a href="#">Grand Child</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Child</a>
+					<ul>
+						<li><a href="#">Grand Child</a></li>
+						<li>
+							<a href="#">Grand Child</a>
+							<ul>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">Grand Child</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>

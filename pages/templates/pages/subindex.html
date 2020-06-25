@@ -14,9 +14,21 @@
 <div class="tree">
 	<ul>
 		<li>
-			<a href="#">{{x.subtitle}}</a>
+			<a href="#" class="uk-card uk-card-primary" style="color: white">{{x.subtitle}}</a>
 			<ul>
-                
+                <li>
+                    {% if x.module_set.all %}
+                        <div class="uk-card uk-card-default">
+                            {% for module in x.module_set.all %}
+                                <div class="uk-tile uk-tile-muted uk-padding-small subtopic" style="border-top: 1px solid black; border-bottom: 1px solid white">
+                                     <a href="#modal-subtopic{{subtopic.id}}" uk-toggle>
+                                        <p class="uk-h4">{{module.title}}</p>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </li>
 			</ul>
 		</li>
 	</ul>
